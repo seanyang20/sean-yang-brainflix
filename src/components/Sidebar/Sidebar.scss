@@ -1,0 +1,14 @@
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/topography' as *;
+@use '../../styles/partials/variables' as *;
+
+.sidebar {
+    
+    &__header {
+        @include text-style(.75rem, 1.25rem);
+        color: $mercury;
+        font-family: 'Avenir Next Bold';
+        text-align: left;
+        padding: 0 0 1rem 0;
+    }
+}
