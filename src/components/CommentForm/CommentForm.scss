@@ -1,0 +1,224 @@
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/topography' as *;
+@use '../../styles/partials/variables' as *;
+
+.form {
+    @include flex(column, center, flex-start);
+    padding: 0 0 1rem 0;
+    flex-grow: 1;
+}
+label[for=name] {
+    @include text-style (.8125rem, 1.125rem);
+    padding: 0 0 0.25rem 0;
+    font-family: "Avenir Next Demi";
+    color: $silver;
+
+    @include tablet {
+        @include text-style (.875rem, 1.375rem);
+    }
+}
+label[for=comment] {
+    @include text-style (.8125rem, 1.125rem);
+    padding: 0 0 0.25rem 0;
+    font-family: "Avenir Next Bold";
+    color: $silver;
+    padding-top: 1rem;
+
+    @include tablet {
+        @include text-style (.875rem, 1.375rem);
+    }
+}
+input {
+    border-radius: .25rem;
+    background-color: $alabaster;
+    width: 99%;
+    height: 2.25rem;
+    border-color: $mercury;
+    border-style: solid;
+    &[type=text]::placeholder {
+        font-family: "Avenir Next Regular";
+        color: $darkblack;
+        padding: 0 0 0 1rem;
+    }
+
+    &:invalid {
+        border: 1px solid #D22D2D;
+    }
+}
+textarea {
+    @extend input;
+    height: 6.75rem;
+    &:invalid {
+        border: 1px solid #D22D2D;
+    }
+    &::placeholder {
+        font-family: "Avenir Next Regular";
+        color: $darkblack;
+        padding: 1rem 0 0 1rem;
+
+        @include tablet {
+            @include text-style (.875rem, 1.375rem);
+        }
+    }
+}
+
+#addComment {
+    height: 2.5rem;
+    background-color: $blue;
+    width: 100%;
+    border-radius: .25rem;
+    color: $white;
+    font-family: "Avenir Next Demi";
+    margin: 1rem 0 0 0;
+
+    @include tablet {
+        width: 25%;
+        margin: 1rem 0 0 auto;
+    }
+}
+.comments {
+    background-color: $white;
+   
+    
+    @include tablet {
+        padding: 0 2.25rem 2.25rem 2.25rem
+    }
+
+    @include desktop {
+        padding: 0 8rem 2.25rem 8rem;
+    }
+
+    &__header {
+        @include text-style (.75rem, 1.25rem);
+        font-family: "Avenir Next Bold";
+        text-align: left;
+     
+
+        @include tablet {
+            @include text-style (2.25rem, 2.75rem);
+            padding: 3rem 0 2.25rem 0;
+        }
+    }
+
+    &__divider {
+        @include flex(row, flex-start, flex-start);
+        
+        @include tablet {
+            padding: 0 2.25rem 0 2.25rem;
+        }
+
+        @include desktop {
+            padding: 0 16rem 0 16rem;
+        }
+    }
+
+    &__default-avatar {
+        height: 2.25rem;
+        min-width: 2.25rem;
+        background-image: url('../../assets/images/Mohan-muruge.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        border-radius: 50%;
+        margin: 1rem 1rem 0 0;
+        
+
+        @include tablet {
+            height: 3rem;
+            min-width: 3rem;
+        }
+
+    }
+
+    &__avatar {
+        height: 2.25rem;
+        min-width: 2.25rem;
+        background-color: $mercury;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        border-radius: 50%;
+        margin: 0 1rem 0 0;
+
+        @include tablet {
+            height: 3rem;
+            min-width: 3rem;
+        }
+    }
+
+    &__content {
+        @include flex(column, center, center);
+        width: 100%;
+
+        &-top {
+            @include flex(row, space-between, center);
+            width: 100%;
+        }
+    }
+
+    &__container {
+        @include tablet {
+            padding: 0 2.25rem 0 2.25rem;
+        }
+        @include desktop {
+            padding: 0 16rem 0 16rem;
+        }
+    }
+
+    &__single {
+        min-height: 5rem;
+        @include flex(row, center, flex-start);
+        width: 100%;
+        border-top: 1px solid $mercury;
+        border-bottom: 1px solid $mercury;
+        padding: 1rem 0 0 0;
+    }
+
+    &__name {
+        @include text-style (.8125rem, 1.125rem);
+        font-family: "Avenir Next Demi";
+
+        @include tablet {
+            @include text-style (.875rem, 1.375rem);
+        }
+        
+    }
+
+    &__timestamp {
+        @include text-style (.8125rem, 1.125rem);
+        font-family: "Avenir Next Regular";
+        color: $silver;
+    }
+
+    &__text {
+        width: 100%;
+        @include text-style (.8125rem, 1.125rem);
+        padding: 0.5rem 0 0.5rem 0;
+        font-family: "Avenir Next Regular";
+
+        @include tablet {
+            @include text-style (.875rem, 1.375rem);
+        }
+    }
+    &__content-bottom {
+        @include flex(row, flex-start, center);
+        width: 100%;
+        text-align: left;
+        padding: 0 0 1rem 0;
+        
+    }
+}
+
+.header {
+&__button {
+    @include flex (row, flex-start, center);
+    width: 100%;
+    height: 36px;
+    background-color: $blue;
+
+    &-text {
+      @include text-style (.8125rem, 1.125rem);
+      font-family: 'Avenir Next Bold';
+      color: $white;
+    }
+  }
+}

@@ -64,6 +64,8 @@
     background-color: $blue;
 
     &-text {
+      @include text-style (.8125rem, 1.125rem);
+      font-family: 'Avenir Next Bold';
       color: $white;
     }
   }
