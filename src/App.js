@@ -16,6 +16,15 @@ export default class App extends Component {
       shown: data[0],
       nextVideoData: data2,
   }
+  handleClick= (vid) => {
+    let video = [...this.state.videoData];
+    console.log(video);
+    let i = video.findIndex((index) => {
+      return index.id === vid.id;
+    })
+    this.setState({shown: video[i]})
+
+  }
 
 
 
@@ -29,7 +38,10 @@ export default class App extends Component {
               <CommentForm/>
               <CommentSection data={this.state.shown}/>
         
-          <Sidebar data={this.state.nextVideoData}/>
+          <Sidebar 
+          data={this.state.videoData}
+          handleClick={this.handleClick}
+          />
       </div>
     </div>
     );

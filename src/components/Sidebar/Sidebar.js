@@ -13,10 +13,12 @@ export default function Sidebar (props) {
             <h2 className="sidebar__header">NEXT VIDEOS</h2>
             {props.data.map((nextVideo) => (
                 <NextVideo
-                key={nextVideo.id}
+                id={nextVideo.id}
                 title={nextVideo.title}
                 channel={nextVideo.channel}
                 image={nextVideo.image}
+                video={nextVideo.video}
+                handClick={props.handleClick}
                 />
                     )   
                 )

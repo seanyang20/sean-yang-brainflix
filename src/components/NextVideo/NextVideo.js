@@ -4,7 +4,7 @@ import "./NextVideo.scss";
 export default function NextVideo(props) {
     console.log(props);
     return (
-      <div className="sidebar__video">
+      <div className="sidebar__video" onClick={() => props.handleClick(props.video)}>
           <div className="sidebar__video-container">
             <img className="sidebar__video-image" src={props.image} alt="NextVideo Image"/>
           </div>
