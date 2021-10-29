@@ -18,7 +18,7 @@ export default function Sidebar (props) {
                 channel={nextVideo.channel}
                 image={nextVideo.image}
                 video={nextVideo.video}
-                handClick={props.handleClick}
+                handleClick={props.handleClick}
                 />
                     )   
                 )

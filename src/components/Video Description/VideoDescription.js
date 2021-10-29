@@ -4,6 +4,7 @@ import ViewsIcon from "../../assets/icons/views.svg";
 import LikesIcon from '../../assets/icons/likes.svg';
 
 export default function VideoDescription(props) {
+    console.log(props.data.title);
     return (
         <section className="videodescription">
         <h1 className="videodescription__heading">{props.data.title}</h1>

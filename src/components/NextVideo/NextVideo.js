@@ -2,9 +2,9 @@ import React from "react";
 import "./NextVideo.scss";
 
 export default function NextVideo(props) {
-    console.log(props);
+    console.log(props.video);
     return (
-      <div className="sidebar__video" onClick={() => props.handleClick(props.video)}>
+      <div className="sidebar__video" onClick={() => props.handleClick(props)}>
           <div className="sidebar__video-container">
             <img className="sidebar__video-image" src={props.image} alt="NextVideo Image"/>
           </div>

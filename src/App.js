@@ -19,9 +19,16 @@ export default class App extends Component {
   handleClick= (vid) => {
     let video = [...this.state.videoData];
     console.log(video);
+    console.log(vid);
     let i = video.findIndex((index) => {
-      return index.id === vid.id;
+      console.log(index);
+      console.log(vid);
+      if (index.id === vid.id) {
+        return index.id;
+      }
+      
     })
+    console.log(i);
     this.setState({shown: video[i]})
 
   }
