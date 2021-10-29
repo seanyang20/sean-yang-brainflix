@@ -1,0 +1,144 @@
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/topography' as *;
+@use '../../styles/partials/variables' as *;
+
+
+.videodescription {
+  padding: 0 16px;
+
+  &__heading {
+    font-family: 'Avenir Next Bold';
+    margin: 32px 0 16px 0;
+  }
+
+  &__subtext {
+    display: flex;
+    flex-direction: column;
+    border-bottom: 2px solid $black;
+  }
+
+  &__views-likes {
+    display: flex;
+    align-items: center;
+    margin-top: 32px;
+    padding-bottom: 24px;
+    font-size: 18px;
+  }
+
+  &__icons {
+    margin-right: 8px;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &__views {
+    margin: 0 24px 0 0;
+  }
+
+  &__likes {
+    margin: 0;
+  }
+
+  &__by-time {
+    display: flex;
+    align-items: center;
+  }
+
+  &__by {
+    font-family: "Avenir Next Regular";
+    font-size: 20px;
+    margin: 0;
+  }
+
+  &__timestamp {
+    font-size: 18px;
+    color: #afafaf;
+    margin: 0 0 0 16px;
+  }
+
+  &__paragraph {
+    line-height: 24px;
+    margin: 24px 0 40px 0;
+  }
+}
+
+@include tablet {
+  .videodescription {
+    padding: 0 24px;
+
+    &__heading {
+      margin: 48px 0 24px 0;
+      font-size: 48px;
+    }
+
+    &__subtext {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 24px;
+    }
+
+    &__views-likes {
+      margin: 0;
+      padding: 0;
+      width: 270px;
+      display: flex;
+      justify-content: space-around;
+    }
+
+    &__icons {
+      margin: 0;
+    }
+
+    &__views {
+      margin: 0;
+    }
+
+    &__paragraph {
+      line-height: 32px;
+      margin: 40px 0 64px 0;
+      font-size: 18px;
+      width: 80%;
+    }
+  }
+}
+
+@include desktop {
+  .videodescription {
+    padding: 0;
+
+    &__heading {
+      margin: 40px 0 24px 0;
+      font-size: 38px;
+    }
+
+    &__subtext {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 24px;
+    }
+
+    &__by {
+      font-size: 18px;
+    }
+
+    &__timestamp {
+      font-size: 16px;
+    }
+
+    &__views-likes {
+      font-size: 16px;
+      justify-content: space-evenly;
+    }
+
+    &__paragraph {
+      line-height: 24px;
+      font-size: 16px;
+      width: 90%;
+    }
+  }
+}
