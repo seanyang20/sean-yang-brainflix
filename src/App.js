@@ -6,6 +6,8 @@ import Hero from './components/Hero/Hero';
 import CommentForm from "./components/CommentForm/CommentForm";
 import CommentSection from './components/CommentSection/CommentSection';
 import Sidebar from "./components/Sidebar/Sidebar";
+import CurrentVideo from "./components/CurrentVideo.js/CurrentVideo";
+import VideoDescription from "./components/Video Description/VideoDescription";
 import data from './data/video-details.json';
 import data2 from './data/videos.json';
 
@@ -39,13 +41,12 @@ export default class App extends Component {
   return (
     <div className="App">
       <Header />
-      <Hero data={this.state.shown} />
+      <CurrentVideo data={this.state.shown}/>
       <div className="main">
- 
-              <CommentForm/>
-              <CommentSection data={this.state.shown}/>
-        
-          <Sidebar 
+        <VideoDescription data={this.state.shown}/>
+        <CommentForm/>
+        <CommentSection data={this.state.shown}/>
+        <Sidebar 
           data={this.state.videoData}
           handleClick={this.handleClick}
           />

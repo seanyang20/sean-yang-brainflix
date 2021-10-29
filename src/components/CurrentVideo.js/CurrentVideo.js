@@ -4,7 +4,7 @@ import PlayButton from "../../assets/icons/play.svg";
 import FullScreen from "../../assets/icons/fullscren.svg";
 import Volume from "../../assets/icons/volume_off.svg";
 
-function CurrentVideo(props) {
+export default function CurrentVideo(props) {
     console.log(props);
     return (
         <div className="currentvideo">
@@ -25,4 +25,3 @@ function CurrentVideo(props) {
     );
 }
 
-export default CurrentVideo;
