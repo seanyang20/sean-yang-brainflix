@@ -9,10 +9,10 @@ export default function CommentSection (props){
     console.log(comments);
     
    return (
-        <section className="commentsection">
+        <section className="comments__container">
             {comments.map((comment) => {
                 console.log(comment);
-                <Comment data={comment}/>
+               return (<Comment data={comment}/>)
             })}
       
         </section>

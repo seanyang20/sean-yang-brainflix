@@ -4,8 +4,7 @@ import uploadButton from '../../assets/icons/upload.svg';
 
 export default function CommentForm() {
     return(
-    <article className="comments" id="comments">
-        <h1 className="comments__header">3 comments</h1>
+   
         <div className="comments__divider">
             <figure className="comments__default-avatar"></figure>
             <form name="form" className="form" id="form" method="post">
@@ -17,8 +16,7 @@ export default function CommentForm() {
                 </button>
             </form>
         </div>
-            <div className="comments__container"></div>
-    </article>
+   
     );
 }
 
