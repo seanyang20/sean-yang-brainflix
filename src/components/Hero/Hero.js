@@ -3,22 +3,19 @@ import { render } from "sass";
 import "./Hero.scss";
 import CurrentVideo from "../CurrentVideo.js/CurrentVideo";
 import VideoDescription from "../Video Description/VideoDescription";
-import mainVideoData from '../../data/video-details.json';
 
 
 
-export default class Hero extends Component {
-    state = {
-        mainVideo: mainVideoData,
-    }
 
+export default function Hero (props) {
+    console.log(props);
     
-    render() {return(
+   return(
         <div className="hero">
-            <CurrentVideo data={this.state.mainVideo}/>
-            <VideoDescription data={this.state.mainVideo}/>
+            <CurrentVideo data={props.data}/>
+            <VideoDescription data={props.data}/>
         </div>
-    )};
+    );
     
 }
 
