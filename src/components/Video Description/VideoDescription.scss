@@ -32,7 +32,11 @@
 
   &__icons-views {
       @include flex(row, flex-start, center);
+      margin: 0 0 .5rem 0;
   }
+  &__icons-likes {
+    @include flex(row, flex-start, center);
+}
 
   &__icons {
       margin: 0 .5rem 0 0;
@@ -44,7 +48,6 @@
   &__views {
     @include text-style (.8125rem, 1.25rem);
     color: $silver;
-    margin: 0 0 .5rem 0;
   }
 
   &__likes {

@@ -117,6 +117,7 @@
     background-color: $blue;
     border: none;
     border-radius: .25rem;
+    padding: 0 0 0 .5rem;
 
     &-text {
       @include text-style (.8125rem, 1.125rem);

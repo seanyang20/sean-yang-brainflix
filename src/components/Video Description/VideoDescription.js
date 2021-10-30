@@ -22,7 +22,7 @@ export default function VideoDescription(props) {
             />
             <p className="videodescription__views">{props.data.views}</p>
           </div>
-          <div className="videodescription__icons-views">
+          <div className="videodescription__icons-likes">
             <img
               className="videodescription__icons"
               src={LikesIcon}
