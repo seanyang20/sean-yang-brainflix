@@ -4,10 +4,15 @@
 
 .currentvideo {
     position: relative;
+   
+    @include tablet {
+        background-color: $darkblack;
+        padding: 0 2.25rem 0 2.25rem;
+    }
     
-
     &__video {
         width: 100%;
+        height: 100%;
     }
     &__controls {
         width: 100%;
@@ -15,6 +20,10 @@
         bottom: 1rem;
         padding: 0 1rem 0 1rem;
         @include flex(row, space-between, flex-start);
+
+        @include tablet {
+            width: 91%;
+        }
     }
     &__playbutton {
         @include flex(row, center, center);
@@ -23,6 +32,11 @@
         height: 1rem;
         flex-basis: 6%;
         padding: .25rem 0 .25rem 0;
+
+        @include tablet {
+            height: 2rem;
+            padding: 0.5rem 0 0.5rem;
+        }
     }
     &__slider {
         background: $black;
@@ -32,11 +46,21 @@
         flex-basis: 80%;
         // padding: 0 .5rem 0 .5rem;
 
+        @include tablet {
+            height: 2rem;
+            padding: 0 .5rem 0 .5rem;
+        }
+
         &-bar {
             flex-basis: 77%;
             height: 4px;
             background: $darkblack;
             margin: 0 0 0 0.5rem;
+
+            @include tablet {
+                flex-basis: 90%;
+                margin: 0 0 0 0;
+            }
 
         }
     }
@@ -44,6 +68,11 @@
         color: $white;
         font-size: .5rem;
         flex-basis: 23%;
+
+        @include tablet {
+            flex-basis: 10%;
+        }
+
     }
     &__right {
         background: $black;
@@ -51,11 +80,23 @@
         border-radius: .25rem;
         height: 1rem;
         flex-basis: 12%;
+
+        @include tablet {
+            height: 2rem;
+        }
     }
     &__fullscreen {
         height: 1rem;
+
+        @include tablet {
+            height: 1.5rem;
+        }
     }
     &__volume {
         height: 1rem;
+
+        @include tablet {
+            height: 1.5rem;
+        }
     }
 }

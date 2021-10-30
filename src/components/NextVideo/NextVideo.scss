@@ -7,6 +7,10 @@
     &__video {
         @include flex(row, flex-start, flex-start);
         padding: 0 0 1rem 0;
+
+        @include tablet {
+            padding: 0 0 1.5rem 0;
+        }
     }
 
     &__video-image {
