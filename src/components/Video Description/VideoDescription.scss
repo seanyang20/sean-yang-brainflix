@@ -4,62 +4,76 @@
 
 
 .videodescription {
-  padding: 0 16px;
+ 
 
   &__heading {
+    margin: 1rem 0 1rem 0;
+    padding: 0 0 1rem 0;
     font-family: 'Avenir Next Bold';
-    margin: 32px 0 16px 0;
+    text-align: left;
+    @include text-style (1.5rem, 2rem);
+    border-bottom: 1px solid $mercury;
   }
 
   &__subtext {
-    display: flex;
-    flex-direction: column;
-    border-bottom: 2px solid $black;
+    @include flex (row, flex-start, flex-start);
+    border-bottom: 1px solid $mercury;
+    padding: 0 0 1rem 0;
+  }
+  &__by-timestamp {
+      flex-basis: 50%;
   }
 
-  &__views-likes {
-    display: flex;
-    align-items: center;
-    margin-top: 32px;
-    padding-bottom: 24px;
+  &__icons-container {
+    @include flex(column, flex-start, flex-start);
     font-size: 18px;
+    margin: 0 auto 0 0;
+  }
+
+  &__icons-views {
+      @include flex(row, flex-start, center);
   }
 
   &__icons {
-    margin-right: 8px;
+      margin: 0 .5rem 0 0;
     &:hover {
       cursor: pointer;
     }
   }
 
   &__views {
-    margin: 0 24px 0 0;
+    @include text-style (.8125rem, 1.25rem);
+    color: $silver;
+    margin: 0 0 .5rem 0;
   }
 
   &__likes {
-    margin: 0;
+    @include text-style (.8125rem, 1.25rem);
+    color: $silver;
   }
 
-  &__by-time {
-    display: flex;
-    align-items: center;
+  &__by-timestamp {
+    @include flex(column, flex-start, flex-start);
   }
 
   &__by {
-    font-family: "Avenir Next Regular";
+    font-family: "Avenir Next Bold";
     font-size: 20px;
-    margin: 0;
+    margin: 0 0 .5rem 0;
+    @include text-style (.8125rem, 1.25rem);
   }
 
   &__timestamp {
     font-size: 18px;
-    color: #afafaf;
-    margin: 0 0 0 16px;
+    color: $silver;
+    @include text-style (.8125rem, 1.25rem);
   }
 
   &__paragraph {
-    line-height: 24px;
+    @include text-style (.8125rem, 1.125rem);
+    font-family: 'Avenir Next Regular';
     margin: 24px 0 40px 0;
+    text-align: left;
   }
 }
 

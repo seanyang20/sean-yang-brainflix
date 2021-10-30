@@ -1,3 +1,7 @@
+@use './styles/partials/mixins' as *;
+@use './styles/partials/topography' as *;
+@use './styles/partials/variables' as *;
+
 .App {
   text-align: center;
 }
@@ -39,4 +43,8 @@
 
 .main {
   padding: 0 1rem 0 1rem;
+
+  @include desktop {
+    @include flex(row, flex-start, flex-start);
+  }
 }

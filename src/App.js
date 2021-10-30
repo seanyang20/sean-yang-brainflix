@@ -38,12 +38,14 @@ export default class App extends Component {
         <Header />
         <CurrentVideo data={this.state.shown} />
         <div className="main">
-          <VideoDescription data={this.state.shown} />
-          <article className="comments" id="comments">
-            <h1 className="comments__header">3 comments</h1>
-            <CommentForm />
-            <CommentSection data={this.state.shown} />
-          </article>
+          <div className="content">
+            <VideoDescription data={this.state.shown} />
+            <article className="comments" id="comments">
+              <h1 className="comments__header">3 comments</h1>
+              <CommentForm />
+              <CommentSection data={this.state.shown} />
+            </article>
+          </div>
           <Sidebar
             data={this.state.videoData}
             shown={this.state.shown}
