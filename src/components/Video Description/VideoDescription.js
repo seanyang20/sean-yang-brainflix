@@ -2,11 +2,13 @@ import React from "react";
 import "./VideoDescription.scss";
 import ViewsIcon from "../../assets/icons/views.svg";
 import LikesIcon from "../../assets/icons/likes.svg";
+// from react-time-ago
+import ReactTimeAgo from 'react-time-ago';
 
 export default function VideoDescription(props) {
   console.log(props.data);
 
-    // creating timestamp 
+    // creating timestamp (old way)
 
     let timeStamp = props.data.timestamp;
     let date = new Date(timeStamp * 1.00001);
@@ -22,7 +24,9 @@ export default function VideoDescription(props) {
       <div className="videodescription__subtext">
         <div className="videodescription__by-timestamp">
           <h2 className="videodescription__by">{`By ${props.data.channel}`}</h2>
-          <p className="videodescription__timestamp">{dateString}</p>
+          <p className="videodescription__timestamp">
+              <ReactTimeAgo date={props.data.timestamp} locale="en-US"/>
+          </p>
         </div>
         <div className="videodescription__icons-container">
           <div className="videodescription__icons-views">
