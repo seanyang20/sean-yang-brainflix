@@ -9,6 +9,11 @@
         background-color: $darkblack;
         padding: 0 2.25rem 0 2.25rem;
     }
+
+    @include desktop {
+        background-color: $darkblack;
+        padding: 0 11.5rem 0 11.5rem;
+    }
     
     &__video {
         width: 100%;
@@ -23,6 +28,10 @@
 
         @include tablet {
             width: 91%;
+        }
+
+        @include desktop {
+            width: 71%;
         }
     }
     &__playbutton {
@@ -51,6 +60,10 @@
             padding: 0 .5rem 0 .5rem;
         }
 
+        @include desktop {
+            flex-basis: 83%;
+        }
+
         &-bar {
             flex-basis: 77%;
             height: 4px;
@@ -60,6 +73,10 @@
             @include tablet {
                 flex-basis: 90%;
                 margin: 0 0 0 0;
+            }
+
+            @include desktop {
+                flex-basis: 90%;
             }
 
         }
@@ -73,6 +90,10 @@
             flex-basis: 10%;
         }
 
+        @include desktop {
+            flex-basis: 10%;
+            padding: 0 0 0 1rem;
+        }
     }
     &__right {
         background: $black;
@@ -83,6 +104,10 @@
 
         @include tablet {
             height: 2rem;
+        }
+
+        @include desktop {
+            flex-basis: 8%;
         }
     }
     &__fullscreen {

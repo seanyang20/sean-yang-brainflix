@@ -3,7 +3,12 @@
 @use '../../styles/partials/variables' as *;
 
 .sidebar {
-    
+    border-left: 1px solid $mercury;
+
+    @include desktop {
+        padding: 0 0 0 1.5rem;
+    }
+
     &__header {
         @include text-style(.75rem, 1.25rem);
         color: $mercury;
