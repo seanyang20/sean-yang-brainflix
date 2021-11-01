@@ -13,8 +13,6 @@ export default function Comment(props) {
     console.log(dateString);
     
 
-
-
     return (
       <div className="comment">
         <figure className="comment__avatar"></figure>

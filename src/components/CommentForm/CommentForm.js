@@ -1,10 +1,14 @@
 import React from "react";
 import "./CommentForm.scss";
-import uploadButton from '../../assets/icons/upload.svg';
+import CommentIcon from '../../assets/icons/add_comment.svg';
+import Button from '../Button/Button';
 
 export default function CommentForm() {
+    const buttonText = "COMMENT";
+    const buttonType = "submit";
+    const idComment = "addComment";
     return (
-   
+        
         <div className="comments__divider">
             <figure className="comments__default-avatar"></figure>
             <form name="form" className="form" id="form" method="post">
@@ -12,10 +16,7 @@ export default function CommentForm() {
                     <label for="comment">Join the Conversation</label>
                     <textarea id="comment-box" name="comment-box" placeholder="Add a new comment"></textarea>
                 </div>
-                <button type="submit" className="header__button" id="addComment" value="Add Comment" src={uploadButton}>
-                    <img className="header__button-icon" src={uploadButton}/>
-                    <h2 className="header__button-text">COMMENT</h2>
-                </button>
+                <Button icon={CommentIcon} text={buttonText} type={buttonType} id={idComment}/>
             </form>
         </div>
    
