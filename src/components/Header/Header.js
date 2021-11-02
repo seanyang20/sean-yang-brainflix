@@ -4,6 +4,7 @@ import logo from '../../assets/logo/BrainFlix-logo.svg';
 import searchIcon from '../../assets/icons/search.svg';
 import uploadButton from "../../assets/icons/upload.svg";
 import Button from '../Button/Button';
+import { Link } from "react-router-dom";
 
 
 
@@ -12,7 +13,7 @@ function Header() {
 
     return (
         <header className="header">
-            <img className="header__logo" src={logo} alt="BrainFlix logo"/>
+            <Link to="/"><img className="header__logo" src={logo} alt="BrainFlix logo"/></Link>
             <form className="header__form" action="/" method="GET">
                 <button className="header__search--button" type="submit">
                     <img className="header__search--icon" src={searchIcon}/>

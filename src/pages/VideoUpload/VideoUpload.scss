@@ -1,0 +1,171 @@
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/topography' as *;
+@use '../../styles/partials/variables' as *;
+
+.videoupload {
+    padding: 0 1rem 0 1rem;
+    @include tablet {
+        padding: 0 2.25rem 0 2.25rem;
+    }
+  
+    &__container-top {
+        @include desktop {
+            @include flex (row, flex-start, center);
+        }
+    }
+    &__header {
+      font-family: 'Avenir Next Bold';
+      margin: 2rem 0 2rem 0;
+      font-size: 1.5rem;
+    }
+    &__video-container {
+        margin: 0 0 2rem 0;
+      }
+  
+    &__label {
+      color: $silver;
+      font-size: .75rem;
+      font-family: 'Avenir Next Regular';
+   
+  
+    }
+  
+    &__video {
+      width: 100%;
+      border-radius: .25rem;
+    }
+  
+
+  
+    &__title {
+      height: 2.5rem;
+      margin: 0.25rem 0 1rem 0;
+      border-radius: .25rem;
+      width: 100%;
+      border: 1px solid $mercury;
+      background: $alabaster;
+      font-family: 'Avenir Next Regular';
+   
+      &::placeholder {
+        font-size: .8125rem;
+        font-family: 'Avenir Next Regular';
+        color: $darkblack;
+      }
+    }
+  
+    &__description {
+      height: 6rem;
+      padding-top: 16px;
+      border-radius: .25rem;
+      width: 100%;
+      border: 1px solid $mercury;
+      background: $alabaster;
+      font-family: 'Avenir Next Regular';
+      margin: .25rem 0 1rem 0;
+   
+      &::placeholder {
+        font-size: .8125rem;
+        font-family: 'Avenir Next Regular';
+        color: $darkblack;
+      }
+    }
+  
+    &__container-bottom {
+        @include tablet {
+            @include flex (row-reverse, flex-end, center);
+        }
+
+      }
+  
+    &__cancel {
+      font-family: 'Avenir Next Regular';
+      font-size: .8125rem;
+      text-align: center;
+      margin: 2rem 0 2rem 0;
+      a {
+        color: $blue;
+        text-decoration: none;
+      }
+    
+    }
+  }
+  
+  @include tablet {
+    .videoupload {
+    
+   
+  
+    
+  
+
+  
+      &__btn {
+        margin: 0;
+        width: 200px;
+      }
+    }
+  }
+  
+  @include desktop {
+    .videoupload {
+      padding: 0 12.5%;
+  
+      &__heading {
+        font-size: 38px;
+      }
+  
+      &__video-input {
+        display: flex;
+        align-items: center;
+        padding-bottom: 40px;
+        border-bottom: 2px solid $mercury
+      }
+  
+      &__video-wrapper {
+        width: 350px;
+        margin: 0;
+      }
+  
+      &__label {
+        font-size: 12px;
+        margin: 0 0 4px 0;
+      }
+  
+      &__input {
+        font-size: 14px;
+        width: 100%;
+        &::placeholder {
+          font-size: 14px;
+        }
+      }
+  
+      &__input-wrapper {
+        border: none;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 70%;
+        margin-left: 24px;
+      }
+  
+      &__add-title {
+        height: 48px;
+        margin: 0 0 24px 0;
+      }
+  
+      &__add-description {
+        height: 90px;
+      }
+  
+      &__cancel {
+        font-size: 14px;
+      }
+  
+      &__btn {
+        height: 48px;
+        width: 170px;
+        font-size: 14px;
+      }
+    }
+  }
