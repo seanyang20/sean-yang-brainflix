@@ -5,7 +5,7 @@ import FullScreen from "../../assets/icons/fullscren.svg";
 import Volume from "../../assets/icons/volume_up.svg";
 
 export default function CurrentVideo(props) {
-    console.log(props);
+
     return (
         <div className="currentvideo">
             <video className="currentvideo__video" src={props.data.video} poster={props.data.image}></video>

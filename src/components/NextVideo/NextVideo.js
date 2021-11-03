@@ -2,7 +2,7 @@ import React from "react";
 import "./NextVideo.scss";
 
 export default function NextVideo(props) {
-    console.log(props.video);
+   
     return (
       <div className="sidebar__video" onClick={() => props.handleClick(props)}>
          

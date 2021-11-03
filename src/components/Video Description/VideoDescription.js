@@ -6,14 +6,14 @@ import LikesIcon from "../../assets/icons/likes.svg";
 import ReactTimeAgo from 'react-time-ago';
 
 export default function VideoDescription(props) {
-  console.log(props.data);
+ 
 
     // creating timestamp (old way)
 
     let timeStamp = props.data.timestamp;
     let date = new Date(timeStamp * 1.00001);
     let dateString = date.toLocaleString().split(',')[0];
-    console.log(dateString);
+
  
 
 
