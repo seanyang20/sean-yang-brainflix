@@ -5,11 +5,6 @@ import ReactTimeAgo from 'react-time-ago';
 
 export default function Comment(props) {
   
-    // creating timestamp (old)
-    let timeStamp = props.data.timestamp;
-    let date = new Date(timeStamp * 1.00001);
-    let dateString = date.toLocaleString().split(',')[0];
-
     
 
     return (

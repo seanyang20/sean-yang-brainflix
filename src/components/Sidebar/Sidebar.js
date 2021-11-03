@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import "./Sidebar.scss";
 // import nextVideodata from '../../data/videos.json';
 // import nextVideoDetails from '../../data/video-details.json';
@@ -23,7 +23,7 @@ export default function Sidebar (props) {
                 channel={nextVideo.channel}
                 image={nextVideo.image}
                 video={nextVideo.video}
-                handleClick={props.handleClick}
+            
                 />
                     )   
                 )

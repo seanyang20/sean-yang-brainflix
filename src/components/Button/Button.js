@@ -6,7 +6,7 @@ export default function Button(props) {
     
   return (
     <button className="button" src={props.icon} type={props.type} id={props.id}>
-      <img className="button-icon" src={props.icon} />
+      <img className="button-icon" src={props.icon} alt="button icon" />
       <h2 className="button-text">{props.text}</h2>
     </button>
   );

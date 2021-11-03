@@ -8,16 +8,6 @@ import ReactTimeAgo from 'react-time-ago';
 export default function VideoDescription(props) {
  
 
-    // creating timestamp (old way)
-
-    let timeStamp = props.data.timestamp;
-    let date = new Date(timeStamp * 1.00001);
-    let dateString = date.toLocaleString().split(',')[0];
-
- 
-
-
-
   return (
     <section className="videodescription">
       <h1 className="videodescription__heading">{props.data.title}</h1>

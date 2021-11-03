@@ -1,9 +1,4 @@
 import React, { Component } from "react";
-import currentVideo from "../../components/CurrentVideo/CurrentVideo";
-// import About from "../About/About";
-// import CommentArea from "../CommentArea/CommentArea";
-// import CommentForm from "../CommentForm/CommentForm";
-// import VideoList from "../VideoList/VideoList";
 import CommentForm from "../../components/CommentForm/CommentForm";
 import CommentSection from "../../components/CommentSection/CommentSection";
 import Sidebar from "../../components/Sidebar/Sidebar";
@@ -25,17 +20,17 @@ export default class Home extends Component {
         sideVideo: [],
       };
       
-      handleClick = (vid) => {
-        let video = [...this.state.videoData];
+    //   handleClick = (vid) => {
+    //     let video = [...this.state.videoData];
 
-        let i = video.findIndex((index) => {
+    //     let i = video.findIndex((index) => {
          
-          if (index.id === vid.id) {
-            return index.id;
-          }
-        });        
-        this.setState({ shown: video[i] });
-      };
+    //       if (index.id === vid.id) {
+    //         return index.id;
+    //       }
+    //     });        
+    //     this.setState({ shown: video[i] });
+    //   };
 
   componentDidMount() {
     
@@ -52,18 +47,34 @@ export default class Home extends Component {
         .then((response) => {
             console.log(response);
             let sideVideo = apiData.filter(vid =>
-                ( vid.id != response.data.id));
+                ( vid.id !== response.data.id));
             console.log(sideVideo);
             this.setState({videoData: sideVideo});
         })
   })
 }
 
+componentDidUpdate(prevProps) {
+    console.log(prevProps);
+    console.log(this.props);
+
+    if (this.props.match.params.id !== prevProps.match.params.id) {
+        axios
+        .get (`${apiURL}/videos/${this.props.match.params.id}?api_key=${apiKEY}`)
+        .then((newVid) => {
+            console.log(newVid);
+            const currVideo = newVid.data;
+            console.log(currVideo);
+            this.setState({shown: currVideo});
+          });
+    }
+}
+
 
 
 
 render() {
-    console.log("hi there");
+  
     return (
         <main className="Home">
             <CurrentVideo data={this.state.shown} />
@@ -79,7 +90,7 @@ render() {
               <Sidebar
                 data={this.state.videoData}
                 shown={this.state.shown}
-                handleClick={this.handleClick}
+                
               />
             </div>
         </main>
