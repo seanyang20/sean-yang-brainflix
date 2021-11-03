@@ -17,7 +17,7 @@ export default class Home extends Component {
         shown: data[0],
         nextVideoData: data2,
         videoInfo: [],
-        sideVideo: [],
+   
       };
       
     //   handleClick = (vid) => {
@@ -40,16 +40,15 @@ export default class Home extends Component {
         console.log(response);
         const apiData = response.data;
         console.log(apiData);
-        // this.setState({videoInfo: apiData});
-        // console.log(this.state.videoInfo);
+        this.setState({videoData: apiData});
+        console.log(this.state.videoData);
         axios
         .get(`${apiURL}/videos/84e96018-4022-434e-80bf-000ce4cd12b8?api_key=${apiKEY}`)
         .then((response) => {
-            console.log(response);
-            let sideVideo = apiData.filter(vid =>
-                ( vid.id !== response.data.id));
-            console.log(sideVideo);
-            this.setState({videoData: sideVideo});
+            console.log(response.data);
+            const sideVids = response.data;
+            this.setState({shown: sideVids});
+            console.log(this.state.shown);
         })
   })
 }
