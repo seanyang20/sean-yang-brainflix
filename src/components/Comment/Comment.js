@@ -8,17 +8,24 @@ export default function Comment(props) {
     console.log(props.data);
 
     return (
-      <div className="comment">
-        <figure className="comment__avatar"></figure>
-        <div className="comment__content">
-          <div className="comment__content-top">
-            <p className="comment__name">{props.data.name}</p>
-            <p className="comment__date">
-                {/* <ReactTimeAgo date={props.data.timestamp} locale="en-US"/> */}
-            </p>
+      <div>
+        {props.data && props.data.map((comments) => {
+          return (
+            <div className="comment">
+            <figure className="comment__avatar"></figure>
+            <div className="comment__content">
+              <div className="comment__content-top">
+                <p className="comment__name">{comments.name}</p>
+                <p className="comment__date">
+                    {/* <ReactTimeAgo date={props.data.timestamp} locale="en-US"/> */}
+                </p>
+              </div>
+              <p className="comment__text">{comments.comment}</p>
+            </div>
           </div>
-          <p className="comment__text">{props.data.comment}</p>
-        </div>
+          );
+        })}
+    
       </div>
     );
   }
