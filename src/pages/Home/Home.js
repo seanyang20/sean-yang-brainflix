@@ -4,8 +4,6 @@ import CommentSection from "../../components/CommentSection/CommentSection";
 import Sidebar from "../../components/Sidebar/Sidebar";
 import CurrentVideo from "../../components/CurrentVideo/CurrentVideo";
 import VideoDescription from "../../components/Video Description/VideoDescription";
-import data from "../../data/video-details.json";
-import data2 from "../../data/videos.json";
 import axios from "axios";
 
 const apiURL = "https://project-2-api.herokuapp.com";
@@ -14,46 +12,68 @@ const apiKEY = "ad2060b7-137d-4ee7-af25-4099ca3a2f9f";
 export default class Home extends Component {
     state = {
         videoData: [],
-        shown: data[0],
-        nextVideoData: data2,
-        videoInfo: [],
+        shown: [],
+
    
       };
-      
-    //   handleClick = (vid) => {
-    //     let video = [...this.state.videoData];
 
-    //     let i = video.findIndex((index) => {
-         
-    //       if (index.id === vid.id) {
-    //         return index.id;
-    //       }
-    //     });        
-    //     this.setState({ shown: video[i] });
-    //   };
 
-  componentDidMount() {
-    
-    axios
+    componentDidMount() {
+        console.log("Hellow");
+
+     axios
     .get(`${apiURL}/videos?api_key=${apiKEY}`)
     .then((response) => {
         console.log(response);
-        const apiData = response.data;
-        console.log(apiData);
-        this.setState({videoData: apiData});
-        console.log(this.state.videoData);
-        axios
+        // const apiData = response.data;
+        // console.log(apiData);
+        // this.setState({videoData: apiData});
+        // console.log(this.state.videoData);
+
+        axios 
         .get(`${apiURL}/videos/84e96018-4022-434e-80bf-000ce4cd12b8?api_key=${apiKEY}`)
         .then((response) => {
             console.log(response.data);
-            const sideVids = response.data;
-            this.setState({shown: sideVids});
-            console.log(this.state.shown);
+            this.setState({shown: response.data});                      
         })
-  })
-}
+        .catch((error) => {
+            console.log(error);
+        })
 
-componentDidUpdate(prevProps) {
+   
+        const filteredArray = response.data.filter((apiData) => {
+            return apiData.id !== this.state.shown.id;
+          });
+          this.setState({ videoData: filteredArray }
+          );
+
+        // axios
+        // .get(`${apiURL}/videos/84e96018-4022-434e-80bf-000ce4cd12b8?api_key=${apiKEY}`)
+        // .then((response) => {
+        //     console.log(response.data);
+        //     const sideVids = response.data;
+        //     this.setState({shown: sideVids});
+        //     console.log(this.state.shown);
+        // })
+        // .catch((err)=>
+        // console.log(err));
+  })
+  .catch((err)=>
+        console.log(err));
+
+    //   axios
+    //     .get(`${apiURL}/videos/84e96018-4022-434e-80bf-000ce4cd12b8?api_key=${apiKEY}`)
+    //     .then((response) => {
+    //         // console.log(response.data);
+           
+    //         this.setState({shown: response.data});
+    //         console.log(this.state.shown);
+    //     })
+    //     .catch((err)=>
+    //     console.log(err));
+    }
+
+componentDidUpdate(prevProps, prevState) {
     console.log(prevProps);
     console.log(this.props);
 
@@ -65,7 +85,9 @@ componentDidUpdate(prevProps) {
             const currVideo = newVid.data;
             console.log(currVideo);
             this.setState({shown: currVideo});
-          });
+          })
+        .catch((err)=>
+        console.log(err));
     }
 }
 
@@ -73,17 +95,23 @@ componentDidUpdate(prevProps) {
 
 
 render() {
-  
+    console.log(this.state.shown);
     return (
         <main className="Home">
-            <CurrentVideo data={this.state.shown} />
+            <CurrentVideo 
+            data={this.state.shown} 
+            />
             <div className="main">
               <div className="content">
-                <VideoDescription data={this.state.shown} />
+                <VideoDescription 
+                data={this.state.shown} 
+                />
                 <article className="comments" id="comments">
                   <h1 className="comments__header">3 comments</h1>
                   <CommentForm />
-                  <CommentSection data={this.state.shown} />
+                  <CommentSection 
+                  data={this.state.shown} 
+                  />
                 </article>
               </div>
               <Sidebar

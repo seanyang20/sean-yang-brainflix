@@ -19,7 +19,7 @@ export default function VideoUpload() {
           <video className="videoupload__video"></video>
         </div>
         <form className="videoupload__form" name="form" method="post">
-          <label className="videoupload__label" for="videoupload__form-title" >
+          <label className="videoupload__label" htmlFor="videoupload__form-title" >
             TITLE YOUR VIDEO
           </label>
           <input
@@ -28,7 +28,7 @@ export default function VideoUpload() {
             className="videoupload__title"
             placeholder="Add a title to your video"
           />
-          <label for="videoupload__description" className="videoupload__label">
+          <label htmlFor="videoupload__description" className="videoupload__label">
             ADD A VIDEO DESCRIPTION
           </label>
           <textarea
