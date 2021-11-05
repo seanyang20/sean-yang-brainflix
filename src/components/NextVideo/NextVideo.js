@@ -3,7 +3,7 @@ import "./NextVideo.scss";
 import { Link } from "react-router-dom";
 
 export default function NextVideo(props) {
-  console.log(props);
+  // console.log(props);
   return (
     <Link to={`/videos/${props.id}`}>
       <div className="sidebar__video">

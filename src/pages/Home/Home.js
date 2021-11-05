@@ -13,13 +13,23 @@ export default class Home extends Component {
     state = {
         videoData: [],
         shown: [],
-
+        commentInput: '',
    
       };
 
+    //   isFormValid = () => {
+    //     console.log("hello");
+    //     // Check if the fields are all filled
+    //     if (
+    //       !this.state.commentpart
+    //     ) {
+    //       return false;
+    //     }
+    //     return true;
+    // };
 
     componentDidMount() {
-        console.log("Hellow");
+        console.log("componentDidMount is working");
 
      axios
     .get(`${apiURL}/videos?api_key=${apiKEY}`)
@@ -75,6 +85,7 @@ export default class Home extends Component {
 
 componentDidUpdate(prevProps, prevState) {
     console.log(prevProps);
+    console.log(prevState);
     console.log(this.props);
 
     if (this.props.match.params.id !== prevProps.match.params.id) {
@@ -85,14 +96,44 @@ componentDidUpdate(prevProps, prevState) {
             const currVideo = newVid.data;
             console.log(currVideo);
             this.setState({shown: currVideo});
+
+            // // for added comments
+            // axios
+            // .post (`${apiURL}/videos/${this.props.match.params.id}?api_key=${apiKEY}`, {
+            //     "name": "test",
+            //     "comment": "testing"
+            //   })
+            // .then((response) => {
+            //     console.log(response);
+                                  
+            // })
+            // .catch((error) => {
+            //     console.log(error);
+            // })
+
           })
         .catch((err)=>
         console.log(err));
     }
 }
+// TO DO: create a change handler for all inputs
+handleChange = (event) => {
+    console.log('handleChange!');
+    console.log('handleChange!', event.target.name);
+    this.setState({
+      [event.target.name]: event.target.value,
+    });
+  };
 
 
 
+handleSubmit = (event) => {
+    event.preventDefault();
+    console.log('handleSubmit');
+     // This is where we would make an axios request
+    // to our backend to add the user to our database.
+
+  };
 
 render() {
     console.log(this.state.shown);
@@ -108,7 +149,11 @@ render() {
                 />
                 <article className="comments" id="comments">
                   <h1 className="comments__header">3 comments</h1>
-                  <CommentForm />
+                  <CommentForm 
+                   handleSubmit={this.handleSubmit}
+                   handleChange={this.handleChange}
+                   value={this.state.commentInput}
+                   />
                   <CommentSection 
                   data={this.state.shown} 
                   />

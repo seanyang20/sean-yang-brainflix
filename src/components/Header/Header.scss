@@ -70,6 +70,12 @@
   }
   &__container {
     @include flex (row, flex-start, flex-start);
+    
+    // to expand the Link tag which is a in mobile view
+    & a{
+      width: 100%;
+      text-decoration: none;
+    }
 
     @include tablet {
       flex-basis: 33.3%;

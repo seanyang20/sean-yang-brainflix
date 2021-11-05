@@ -18,6 +18,7 @@ export default function Sidebar (props) {
 
             .map((nextVideo) => (
                 <NextVideo
+                key={nextVideo.id}
                 id={nextVideo.id}
                 title={nextVideo.title}
                 channel={nextVideo.channel}

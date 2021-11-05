@@ -5,6 +5,12 @@
 .sidebar {
     border-left: 1px solid $mercury;
 
+    // to get rid of link underline and color
+    & a{
+        text-decoration: none;
+        color: $darkblack;
+    }
+
     @include desktop {
         padding: 0 0 0 1.5rem;
     }

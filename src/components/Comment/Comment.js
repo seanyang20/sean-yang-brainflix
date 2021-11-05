@@ -1,7 +1,7 @@
 import React from "react";
 import "./Comment.scss";
 // from react-time-ago
-// import ReactTimeAgo from 'react-time-ago';
+import ReactTimeAgo from 'react-time-ago';
 
 export default function Comment(props) {
   
@@ -9,15 +9,18 @@ export default function Comment(props) {
 
     return (
       <div>
-        {props.data && props.data.map((comments) => {
+        {props.data && props.data.map((comments, i) => {
+            // console.log(comments);
+            // console.log(i);
+            console.log(comments.timestamp);
           return (
-            <div className="comment">
+            <div className="comment" key={i}>
             <figure className="comment__avatar"></figure>
             <div className="comment__content">
               <div className="comment__content-top">
                 <p className="comment__name">{comments.name}</p>
                 <p className="comment__date">
-                    {/* <ReactTimeAgo date={props.data.timestamp} locale="en-US"/> */}
+                    <ReactTimeAgo date={comments.timestamp} locale="en-US"/>
                 </p>
               </div>
               <p className="comment__text">{comments.comment}</p>

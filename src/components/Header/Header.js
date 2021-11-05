@@ -22,7 +22,7 @@ function Header() {
                 <div className="header__profile-avatar"></div>
             </form>
             <div className="header__container">
-                <Button icon={uploadButton} text={buttonText}/>
+                <Link to="/upload"><Button icon={uploadButton} text={buttonText}/></Link>
                 <div className="header__profile-avatar--tablet"></div>
             </div>
         </header>
