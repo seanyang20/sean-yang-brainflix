@@ -7,7 +7,7 @@ import VideoDescription from "../../components/Video Description/VideoDescriptio
 import axios from "axios";
 
 const apiURL = "https://project-2-api.herokuapp.com";
-const apiKEY = "ad2060b7-137d-4ee7-af25-4099ca3a2f9f";
+const apiKEY = "aee5cdb1-199b-4b72-9523-9239ce527109";
 
 export default class Home extends Component {
     state = {
@@ -118,16 +118,28 @@ handleSubmit = async (event) => {
     })
     .then((response) => {
         console.log(response);
-        this.getAPI();
+        // this.getAPI();
+       return axios
+        .get(`${apiURL}/videos/${shownVidId}?api_key=${apiKEY}`);
+        // .then()
         // console.log(this.props.history.location.pathname);
         // console.log(this.shown);
         // if (this.shown.data.id === this.props.match.params.id){
         //     this.props.history.replace(`/videos/${shownVidId}`);
         // }
     })
+    .then((response) => {
+        console.log(response);
+        this.setState({shown: response.data});
+    })
+    
     .catch((error) => {
         console.log(error);
     })
+    // Get Textbox to reset upon submit 
+    this.setState({
+        [event.target.name]: '',
+      });
 
   };
 

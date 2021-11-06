@@ -15,7 +15,7 @@ export default function Comment(props) {
         {props.data && props.data.map((comments, i) => {
             // console.log(comments);
             // console.log(i);
-            console.log(comments.timestamp);
+            // console.log(comments.timestamp);
           return (
             <div className="comment" key={i}>
             <figure className="comment__avatar"></figure>
