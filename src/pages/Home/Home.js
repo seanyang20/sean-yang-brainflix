@@ -28,68 +28,44 @@ export default class Home extends Component {
     //     return true;
     // };
 
+      async getAPI (){
+            await axios
+            .get(`${apiURL}/videos?api_key=${apiKEY}`)
+            .then((response) => {
+                console.log(response);
+                this.setState({ videoData: response.data });
+
+                 axios
+                .get(`${apiURL}/videos/${response.data[0].id}?api_key=${apiKEY}`)
+                .then((response) => {
+                    console.log(response);
+                    this.setState({shown: response.data});
+                })
+
+        
+          })
+          .catch((err)=>
+                console.log(err));
+      }
+
+      
     componentDidMount() {
         console.log("componentDidMount is working");
 
-     axios
-    .get(`${apiURL}/videos?api_key=${apiKEY}`)
-    .then((response) => {
-        console.log(response);
-        // const apiData = response.data;
-        // console.log(apiData);
-        // this.setState({videoData: apiData});
-        // console.log(this.state.videoData);
+        this.getAPI();
+ 
 
-        axios 
-        .get(`${apiURL}/videos/84e96018-4022-434e-80bf-000ce4cd12b8?api_key=${apiKEY}`)
-        .then((response) => {
-            console.log(response.data);
-            this.setState({shown: response.data});                      
-        })
-        .catch((error) => {
-            console.log(error);
-        })
 
-   
-        const filteredArray = response.data.filter((apiData) => {
-            return apiData.id !== this.state.shown.id;
-          });
-          this.setState({ videoData: filteredArray }
-          );
 
-        // axios
-        // .get(`${apiURL}/videos/84e96018-4022-434e-80bf-000ce4cd12b8?api_key=${apiKEY}`)
-        // .then((response) => {
-        //     console.log(response.data);
-        //     const sideVids = response.data;
-        //     this.setState({shown: sideVids});
-        //     console.log(this.state.shown);
-        // })
-        // .catch((err)=>
-        // console.log(err));
-  })
-  .catch((err)=>
-        console.log(err));
-
-    //   axios
-    //     .get(`${apiURL}/videos/84e96018-4022-434e-80bf-000ce4cd12b8?api_key=${apiKEY}`)
-    //     .then((response) => {
-    //         // console.log(response.data);
-           
-    //         this.setState({shown: response.data});
-    //         console.log(this.state.shown);
-    //     })
-    //     .catch((err)=>
-    //     console.log(err));
     }
 
-componentDidUpdate(prevProps, prevState) {
+async componentDidUpdate (prevProps, prevState) {
     console.log(prevProps);
     console.log(prevState);
     console.log(this.props);
 
     if (this.props.match.params.id !== prevProps.match.params.id) {
-        axios
+        await axios
         .get (`${apiURL}/videos/${this.props.match.params.id}?api_key=${apiKEY}`)
         .then((newVid) => {
             console.log(newVid);
@@ -127,18 +103,40 @@ handleChange = (event) => {
 
 
 
-handleSubmit = (event) => {
+handleSubmit = async (event) => {
     event.preventDefault();
     console.log('handleSubmit');
+
+    let shownVidId = this.state.shown.id;
+    console.log(shownVidId);
      // This is where we would make an axios request
     // to our backend to add the user to our database.
+   await axios
+    .post(`${apiURL}/videos/${shownVidId}/comments?api_key=${apiKEY}`,{
+        name: "Sean" || null,
+        comment: event.target.commentInput.value || null,
+    })
+    .then((response) => {
+        console.log(response);
+        this.getAPI();
+        // console.log(this.props.history.location.pathname);
+        // console.log(this.shown);
+        // if (this.shown.data.id === this.props.match.params.id){
+        //     this.props.history.replace(`/videos/${shownVidId}`);
+        // }
+    })
+    .catch((error) => {
+        console.log(error);
+    })
 
   };
 
 render() {
     console.log(this.state.shown);
+
     return (
         <main className="Home">
+            {this.state.shown !== 'undefined' || this.state.shown !== [] ? <> 
             <CurrentVideo 
             data={this.state.shown} 
             />
@@ -162,11 +160,11 @@ render() {
               <Sidebar
                 data={this.state.videoData}
                 shown={this.state.shown}
-                
               />
             </div>
+            </> : <p>Loading </p>}
         </main>
-    );
+)};
   }
-}
+
  

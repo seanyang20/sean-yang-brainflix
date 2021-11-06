@@ -11,9 +11,9 @@ export default function CommentForm ({handleSubmit, handleChange, value}) {     
     const idComment = "addComment";
  
   
-    console.log(handleSubmit);
-    console.log(handleChange);
-    console.log(value);
+    // console.log(handleSubmit);
+    // console.log(handleChange);
+    // console.log(value);
 
 
     return (

@@ -11,9 +11,12 @@ TimeAgo.addLocale(en);
 
 export default function VideoDescription(props) {
  
-    console.log(typeof props.data.timestamp);
-    let time = props.data.timestamp;
+    // console.log(props.data.timestamp);
+    // let time = props.data.timestamp;
 
+    // if (props.data && props.data.timestamp) {
+
+  
     // function updatedTime () {
     //   if (typeof time === 'number'){
        
@@ -21,17 +24,21 @@ export default function VideoDescription(props) {
     //   }
     // }
     // console.log(updatedTime);
-   
+      
 
 
   return (
+    
     <section className="videodescription">
+      {props.data !== 'undefined' ? <> 
       <h1 className="videodescription__heading">{props.data.title}</h1>
       <div className="videodescription__subtext">
         <div className="videodescription__by-timestamp">
           <h2 className="videodescription__by">{`By ${props.data.channel}`}</h2>
           <p className="videodescription__timestamp">
-              {/* <ReactTimeAgo date={updatedTime()} locale="en-US"/> */}
+            {props.data.timestamp &&
+              <ReactTimeAgo date={props.data.timestamp} locale="en-US"/>
+            }
           </p>
         </div>
         <div className="videodescription__icons-container">
@@ -54,6 +61,8 @@ export default function VideoDescription(props) {
         </div>
       </div>
       <p className="videodescription__paragraph">{props.data.description}</p>
-    </section>
+      </> : <p>Loading</p>}
+    </section> 
   );
+  // }
 }

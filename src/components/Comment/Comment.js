@@ -2,10 +2,13 @@ import React from "react";
 import "./Comment.scss";
 // from react-time-ago
 import ReactTimeAgo from 'react-time-ago';
+import TimeAgo from 'javascript-time-ago';
+import en from 'javascript-time-ago/locale/en.json';
+TimeAgo.addLocale(en);
 
 export default function Comment(props) {
   
-    console.log(props.data);
+    // console.log(props.data);
 
     return (
       <div>
