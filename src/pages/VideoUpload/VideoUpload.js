@@ -8,6 +8,11 @@ import uploadIcon from "../../assets/icons/publish.svg";
 
 
 export default function VideoUpload() {
+
+  let handleAlert = () => {
+    alert("Upload Successful");
+  }
+ console.log(handleAlert);
   return (
     <main className="videoupload">  
       <h2 className="videoupload__header">Upload Video</h2>
@@ -40,7 +45,11 @@ export default function VideoUpload() {
         </form>
         </section>
       <div className="videoupload__container-bottom">
-        <Button icon={uploadIcon} text="PUBLISH" />
+        
+        <Link to='/'>
+        <Button icon={uploadIcon} text="PUBLISH" handleAlert={handleAlert} />
+        </ Link>
+       
         <h2 className="videoupload__cancel">
           <Link to="/">CANCEL</Link>
         </h2>

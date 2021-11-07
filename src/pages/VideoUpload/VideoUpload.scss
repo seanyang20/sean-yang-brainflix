@@ -109,6 +109,14 @@
     }
   
     &__container-bottom {
+     
+
+        & a{
+          flex-basis: 25%;
+          text-decoration: none;
+        }
+      
+
         @include tablet {
             @include flex (row-reverse, flex-start, center);
             
