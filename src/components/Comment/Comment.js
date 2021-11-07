@@ -9,6 +9,7 @@ TimeAgo.addLocale(en);
 export default function Comment(props) {
   
     // console.log(props.data);
+    console.log(props.handleDelete);
 
     return (
       <div>
@@ -27,6 +28,7 @@ export default function Comment(props) {
                 </p>
               </div>
               <p className="comment__text">{comments.comment}</p>
+              <button className="delete-button" onClick={() => {props.handleDelete(comments)}}>DELETE</button>
             </div>
           </div>
           );

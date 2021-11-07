@@ -143,6 +143,43 @@ handleSubmit = async (event) => {
 
   };
 
+handleDelete = async (event) => {
+  console.log("This is for DELETE button functionality");
+
+  let shownVidId = this.state.shown.id;
+  console.log(shownVidId);
+  console.log(event.id);      // comment id
+  console.log(this.state.shown.comments);
+
+  let commentID = event.id;
+
+  await axios
+    .delete(`${apiURL}/videos/${shownVidId}/comments/${commentID}/?api_key=${apiKEY}`)
+    .then((response) => {
+      console.log(response);      // returns the deleted comment 
+
+
+
+      return axios
+      .get(`${apiURL}/videos/${shownVidId}?api_key=${apiKEY}`);
+      // .then()
+      // console.log(this.props.history.location.pathname);
+      // console.log(this.shown);
+      // if (this.shown.data.id === this.props.match.params.id){
+      //     this.props.history.replace(`/videos/${shownVidId}`);
+      // }
+  })
+  .then((response) => {
+      console.log(response);
+      this.setState({shown: response.data});
+  })
+  
+    .catch((error) => {
+      console.log(error);
+    })
+
+};
+
 render() {
     console.log(this.state.shown);
 
@@ -166,6 +203,7 @@ render() {
                    />
                   <CommentSection 
                   data={this.state.shown} 
+                  handleDelete={this.handleDelete}
                   />
                 </article>
               </div>
