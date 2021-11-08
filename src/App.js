@@ -16,7 +16,15 @@ export default class App extends Component {
           <Switch>
             <Route path="/" exact component={Home}/>
             <Route path="/upload" component={Upload} />
-            <Route path="/videos/:id" component={Home} />
+            <Route path="/videos/:id" 
+            render={(reactRouterDomProps) =>{
+              return (
+                <Home
+                {...reactRouterDomProps}
+                />
+              )
+            }}>
+            </Route>
           </Switch>
       </div>
     );

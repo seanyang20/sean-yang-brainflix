@@ -125,8 +125,6 @@ handleDelete = async (event) => {
     .then((response) => {
       console.log(response);      // returns the deleted comment 
 
-
-
       return axios
       .get(`${apiURL}/videos/${shownVidId}?api_key=${apiKEY}`);
   
@@ -145,9 +143,10 @@ handleDelete = async (event) => {
 render() {
     console.log(this.state.shown);
 
+
     return (
         <main className="Home">
-            {this.state.shown !== 'undefined' || this.state.shown !== [] ? <> 
+            {this.state.shown.length !== 0 ? <> 
             <CurrentVideo 
             data={this.state.shown} 
             />
