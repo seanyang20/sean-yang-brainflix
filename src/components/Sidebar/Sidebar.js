@@ -1,11 +1,9 @@
 import React from "react";
 import "./Sidebar.scss";
-// import nextVideodata from '../../data/videos.json';
-// import nextVideoDetails from '../../data/video-details.json';
 import NextVideo from '../NextVideo/NextVideo';
 
 export default function Sidebar (props) {
-   
+
     return (
         <div className="sidebar">
             <h2 className="sidebar__header">NEXT VIDEOS</h2>
