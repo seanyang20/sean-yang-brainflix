@@ -3,7 +3,7 @@ import "./Sidebar.scss";
 import NextVideo from '../NextVideo/NextVideo';
 
 export default function Sidebar (props) {
-
+        console.log(props);
     return (
         <div className="sidebar">
             <h2 className="sidebar__header">NEXT VIDEOS</h2>

@@ -142,7 +142,7 @@ handleDelete = async (event) => {
 
 render() {
     console.log(this.state.shown);
-
+    console.log(this.state.videoData);
 
     return (
         <main className="Home">
