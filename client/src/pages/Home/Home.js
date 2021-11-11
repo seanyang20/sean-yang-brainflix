@@ -17,42 +17,37 @@ export default class Home extends Component {
    
       };
 
-        getAPI = async () => {
-        let shownVidDetails = this.props.match.params.id
-        ? this.props.match.params.id
-        : this.state.videoData[0].id;
-       
-        console.log(this.props.match);
-        console.log(this.state.videoData[0].id);
-        await axios
-        .get(`${apiURL}/videos/${shownVidDetails}?api_key=${apiKEY}`)
-        .then((response) => {
-            console.log(response);
-            this.setState({ shown: response.data });
-        })
-        .catch((err)=>
-        console.log(err));
+  getAPI = async () => {
+  let shownVidDetails = this.props.match.params.id
+  ? this.props.match.params.id
+  : this.state.videoData[0].id;
+  
+  console.log(this.props.match);
+  console.log(this.state.videoData[0].id);
+  await axios
+  .get(`${apiURL}/videos/${shownVidDetails}?api_key=${apiKEY}`)
+  .then((response) => {
+      console.log(response);
+      this.setState({ shown: response.data });
+  })
+  .catch((err)=>
+  console.log(err));
 
-      }
+  }
 
-
-      
-   async componentDidMount() {
-        console.log("componentDidMount is working");
-      
-
-        await axios
-        .get(`${apiURL}/videos?api_key=${apiKEY}`)
-        .then(({data}) => {
-            console.log(data);
-            this.setState({ videoData: data, },
-              this.getAPI);
-        })
-        .catch((err)=>
-        console.log(err));
-
-
-    }
+async componentDidMount() {
+    console.log("componentDidMount is working");
+  
+    await axios
+    .get(`http://localhost:8080/videos`)
+    .then(({data}) => {
+        console.log(data);
+        this.setState({ videoData: data, },
+          this.getAPI);
+    })
+    .catch((err)=>
+    console.log(err));
+}
 
 async componentDidUpdate (prevProps, prevState) {
     console.log(prevProps);
