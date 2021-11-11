@@ -1,18 +1,54 @@
-import React from "react";
+import React, {Component} from "react";
 import "./VideoUpload.scss";
 // import SampleVideo from "../../assets/Video/brainstation-sample-video.mp4";
 // import videouploadPoster from "../../assets/Images/videoupload-video-preview.jpg";
 import { Link } from "react-router-dom";
 import Button from "../../components/Button/Button";
 import uploadIcon from "../../assets/icons/publish.svg";
+import axios from "axios";
 
+export default class VideoUpload extends Component {
+     state = {
+        title: '',
+        description: ''
+   
+      };
 
-export default function VideoUpload() {
+  handleChange = (event) => {
+    console.log('handleChange!');
+    console.log('handleChange!', event.target.name);
+    this.setState({
+      [event.target.name]: event.target.value,
+    });
+  };
 
-  let handleAlert = () => {
-    alert("Upload Successful");
+  // publish video functionality
+  handleAlert = (event) => {
+    // event.preventDefault();
+    axios
+    .post(`http://localhost:8080/videos`,{
+        // "title": event.target.title.value,
+        "channel": "random channel",
+        // "image": thumbnail,
+        "description": "event.target.description.value",
+        "duration": "4:01",
+        // "video": "https://project-2-api.herokuapp.com/stream",
+        // "timestamp": Date.now(),
+    })
+    .then((response) => {
+      console.log(response);
+        setTimeout(()=> {
+            alert("Uploaded Successfully!")
+            // console.log(this.props);
+            this.props.history.push('/')
+        },1000)  
+    })
+    .catch(err => console.log(err))
   }
- console.log(handleAlert);
+
+
+render (){
+  console.log(this.handleAlert);
   return (
     <main className="videoupload">  
       <h2 className="videoupload__header">Upload Video</h2>
@@ -29,26 +65,28 @@ export default function VideoUpload() {
           </label>
           <input
             type="text"
-            name="videoupload__title"
+            name="title"
             className="videoupload__title"
             placeholder="Add a title to your video"
+            onChange={this.handleChange}
           />
           <label htmlFor="videoupload__description" className="videoupload__label">
             ADD A VIDEO DESCRIPTION
           </label>
           <textarea
             type="text"
-            name="videoupload__description"
+            name="description"
             className="videoupload__description"
             placeholder="Add a description of your video"
+            onChange={this.handleChange}
           />
         </form>
         </section>
       <div className="videoupload__container-bottom">
         
-        <Link to='/'>
-        <Button icon={uploadIcon} text="PUBLISH" handleAlert={handleAlert} />
-        </ Link>
+        {/* <Link to='/'> */}
+        <Button icon={uploadIcon} text="PUBLISH" handleAlert={this.handleAlert} />
+        {/* </ Link> */}
        
         <h2 className="videoupload__cancel">
           <Link to="/">CANCEL</Link>
@@ -57,4 +95,5 @@ export default function VideoUpload() {
       
     </main>
   );
+}
 }

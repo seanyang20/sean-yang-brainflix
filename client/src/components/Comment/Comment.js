@@ -15,7 +15,7 @@ export default function Comment(props) {
         {props.data && props.data.map((comments, i) => {
             // console.log(comments);
             // console.log(i);
-            // console.log(comments.timestamp);
+            console.log(comments.timestamp);
           return (
             <div className="comment" key={i}>
             <figure className="comment__avatar"></figure>
@@ -23,7 +23,7 @@ export default function Comment(props) {
               <div className="comment__content-top">
                 <p className="comment__name">{comments.name}</p>
                 <p className="comment__date">
-                    <ReactTimeAgo date={comments.timestamp} locale="en-US"/>
+                    {/* <ReactTimeAgo date={comments.timestamp} locale="en-US"/> */}
                 </p>
               </div>
               <p className="comment__text">{comments.comment}</p>

@@ -9,13 +9,14 @@ let videoData = [];
 const getVideoData = () => {
     console.log("getVideoData is working");
     fs.readFile("./data/videos.json", (err, data) => {
+        
       if (err) {
         console.log(err);
         return;
         
       }
       videoData = JSON.parse(data);
-   
+ 
     });
   
   };
@@ -39,7 +40,7 @@ router.get("/videos/:id", (req, res) => {
     if (singleVideo) {
         res.json(singleVideo);
     } else {
-        res.status(404).send("We can't find that shoe.");
+        res.status(404).send("We can't find that video.");
     }
     });
 

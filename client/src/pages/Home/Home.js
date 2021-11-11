@@ -25,7 +25,8 @@ export default class Home extends Component {
   console.log(this.props.match);
   console.log(this.state.videoData[0].id);
   await axios
-  .get(`${apiURL}/videos/${shownVidDetails}?api_key=${apiKEY}`)
+  // .get(`${apiURL}/videos/${shownVidDetails}?api_key=${apiKEY}`)
+  .get(`http://localhost:8080/videos/${shownVidDetails}`)
   .then((response) => {
       console.log(response);
       this.setState({ shown: response.data });
@@ -78,16 +79,18 @@ handleSubmit = async (event) => {
      // This is where we would make an axios request
     // to our backend to add the user to our database.
    await axios
-    .post(`${apiURL}/videos/${shownVidId}/comments?api_key=${apiKEY}`,{
+    .post(`http://localhost:8080/videos/${shownVidId}/comments`,{
         name: "Sean" || null,
         comment: event.target.commentInput.value || null,
     })
     .then((response) => {
         console.log(response);
+        // this.setState({[this.state.shown]:response});
         // this.getAPI();
        return axios
-        .get(`${apiURL}/videos/${shownVidId}?api_key=${apiKEY}`);
-   
+        .get(`http://localhost:8080/videos/${shownVidId}`);
+        // this.getAPI();
+     
     })
     .then((response) => {
         console.log(response);
@@ -116,12 +119,14 @@ handleDelete = async (event) => {
   let commentID = event.id;
 
   await axios
-    .delete(`${apiURL}/videos/${shownVidId}/comments/${commentID}/?api_key=${apiKEY}`)
+    // .delete(`${apiURL}/videos/${shownVidId}/comments/${commentID}/?api_key=${apiKEY}`)
+    .delete(`http://localhost:8080/videos/${shownVidId}/comments/${commentID}`)
     .then((response) => {
       console.log(response);      // returns the deleted comment 
 
       return axios
-      .get(`${apiURL}/videos/${shownVidId}?api_key=${apiKEY}`);
+      // .get(`${apiURL}/videos/${shownVidId}?api_key=${apiKEY}`);
+      .get(`http://localhost:8080/videos/${shownVidId}`)
   
   })
   .then((response) => {
