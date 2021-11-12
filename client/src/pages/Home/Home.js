@@ -140,6 +140,39 @@ handleDelete = async (event) => {
 
 };
 
+handleLike = async () => {
+  console.log("Inside handleLike function");
+  let shownVidId = this.state.shown.id;
+  console.log(shownVidId);
+
+  // let shownVidId = this.state.shown.id;
+  // console.log(shownVidId);
+
+      await axios.put(`http://localhost:8080/videos/${shownVidId}/likes`)
+        .then((response) =>{
+          console.log(response);
+
+
+          return axios
+          // .get(`${apiURL}/videos/${shownVidId}?api_key=${apiKEY}`);
+          .get(`http://localhost:8080/videos/${shownVidId}`)
+      
+      })
+      .then((response) => {
+          console.log(response);
+          this.setState({shown: response.data});
+      })
+
+        .catch((err) => {
+          console.log(err);
+        })
+      // this.props.renderComments();
+      // console.log(this.props);         // undefined 
+      
+     
+
+}
+
 render() {
     console.log(this.state.shown);
     console.log(this.state.videoData);
@@ -154,6 +187,7 @@ render() {
               <div className="content">
                 <VideoDescription 
                 data={this.state.shown} 
+                handleLike={this.handleLike}
                 />
                 <article className="comments" id="comments">
                   <h1 className="comments__header">3 comments</h1>

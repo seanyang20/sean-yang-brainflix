@@ -68,6 +68,8 @@ router.post("/videos", (req, res) => {
     if (!channel || !description) {
         res.status(400).send("Please supply channel and description properties in your POST request");
     }
+    
+    res.json(videos);
 
     fs.writeFile('./data/videos.json', 
     JSON.stringify(videos), (err) => {
@@ -88,13 +90,19 @@ router.put('/videos/:videoId/likes', (req, res) => {
         // console.log(video, "TESTING")
         video.id === videoId
         )
-    // console.log(selectedVideo);         // returns the selected video data with the corresponding id 
+    // console.log(selectedVideo.likes);         // returns the selected video data with the corresponding id 
+    // console.log(selectedVideo.likes.replace(',', ''));  // gets rid of the comma to enable parsefloat 
+    const likes = parseFloat(selectedVideo.likes.replace(',', ''));
+    // console.log(likes);
 
-    const {likes} = req.body;
+    let addLike = likes + 1;                    // add a like when button is clicked 
+    // console.log(addLike);
 
-    selectedVideo.push({
-        likes
-    });
+    // console.log(selectedVideo);
+    selectedVideo.likes = addLike.toLocaleString();
+    // console.log(selectedVideo);
+
+    
 
     videoData.map((vidInArray) => {
         // console.log(vidInArray);
@@ -103,6 +111,9 @@ router.put('/videos/:videoId/likes', (req, res) => {
             return vidInArray = selectedVideo
         }
     })
+    console.log(videoData);
+
+    res.json(videoData);
 
     fs.writeFile('./data/videos.json', 
     JSON.stringify(videoData), (err) => {

@@ -55,6 +55,7 @@ export default function VideoDescription(props) {
               className="videodescription__icons"
               src={LikesIcon}
               alt="Likes icon"
+              onClick={() => {props.handleLike(props.data.id)}}
             />
             <p className="videodescription__likes">{props.data.likes}</p>
           </div>
