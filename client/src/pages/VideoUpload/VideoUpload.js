@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React, {Component, useState} from "react";
 import "./VideoUpload.scss";
 // import SampleVideo from "../../assets/Video/brainstation-sample-video.mp4";
 // import videouploadPoster from "../../assets/Images/videoupload-video-preview.jpg";
@@ -11,9 +11,18 @@ import thumbnail from "../../assets/images/Upload-video-preview.jpg";
 export default class VideoUpload extends Component {
      state = {
         title: '',
-        description: ''
-   
+        description: '',
+        selectedFile: {},
+        isFilePicked: false
       };
+
+  changeHandler = (event) => {
+    console.log("Inside change Handler for Uploading Image File");
+    console.log(event.target.files[0]);
+    this.setState({selectedFile: event.target.files[0], isFilePicked: true});
+  
+    // console.log(this.state.selectedFile);
+  }    
 
   handleChange = (event) => {
     console.log('handleChange!');
@@ -50,9 +59,10 @@ export default class VideoUpload extends Component {
     .catch(err => console.log(err))
   }
 
-
+  
 render (){
   console.log(this.handleAlert);
+  console.log(this.state.selectedFile);
   return (
     <main className="videoupload">  
       <h2 className="videoupload__header">Upload Video</h2>
@@ -61,7 +71,7 @@ render (){
           <label className="videoupload__label">
             VIDEO THUMBNAIL
           </label>
-          <video className="videoupload__video"></video>
+          <video className="videoupload__video" poster={thumbnail} ></video>
         </div>
         <form className="videoupload__form" name="form" method="post">
           <label className="videoupload__label" htmlFor="videoupload__form-title" >
@@ -84,6 +94,7 @@ render (){
             placeholder="Add a description of your video"
             onChange={this.handleChange}
           />
+          <input type="file" name="file" onChange={this.changeHandler} />
         </form>
         </section>
       <div className="videoupload__container-bottom">
