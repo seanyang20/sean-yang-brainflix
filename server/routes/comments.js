@@ -43,7 +43,7 @@ router
             "comment": req.body.comment,
             "id": uuidv4(),
             "likes": 0,
-            "timestamp": req.body.timestamp
+            "timestamp": Date.now()
         }
         // console.log(newComment);
         // console.log(selectedVideo);
@@ -68,6 +68,8 @@ router
         //         res.status(200).send(newComment)
         //     }
         // })
+        res.json(videoData);
+
         fs.writeFile('./data/videos.json', 
         JSON.stringify(videoData), (err) => {
         if (err) {
@@ -98,6 +100,8 @@ router
                 return vidInArray = selectedVideo
             }
         })
+
+        res.json(videoData);
 
         fs.writeFile('./data/videos.json', 
         JSON.stringify(videoData), (err) => {

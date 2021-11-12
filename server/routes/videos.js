@@ -47,7 +47,7 @@ router.get("/videos/:id", (req, res) => {
 router.post("/videos", (req, res) => {
     console.log('POST videos/ method called');
     let videos = videoData;
-    const {channel, description} = req.body;
+    const {channel, description, title, views, likes, duration, image, timestamp, comments} = req.body;
     console.log(req.body);
    
   
@@ -55,6 +55,13 @@ router.post("/videos", (req, res) => {
 		id: uuidv4(),
 		channel,
 		description,
+        title,
+        views,
+        likes,
+        duration,
+        image, 
+        timestamp,
+        comments
 	});
     
     console.log(videos, "HELLO");
@@ -72,7 +79,42 @@ router.post("/videos", (req, res) => {
     })
 }) 
 
+router.put('/videos/:videoId/likes', (req, res) => {
+    console.log("Inside ROUTER PUT");
+    const videoId = req.params.videoId
+    console.log(videoId);           // requested vid id
+    const selectedVideo = videoData.find(
+        (video) => 
+        // console.log(video, "TESTING")
+        video.id === videoId
+        )
+    // console.log(selectedVideo);         // returns the selected video data with the corresponding id 
 
+    const {likes} = req.body;
+
+    selectedVideo.push({
+        likes
+    });
+
+    videoData.map((vidInArray) => {
+        // console.log(vidInArray);
+        if (vidInArray.id === selectedVideo.id){
+            // console.log(vidInArray)
+            return vidInArray = selectedVideo
+        }
+    })
+
+    fs.writeFile('./data/videos.json', 
+    JSON.stringify(videoData), (err) => {
+        if (err) {
+            res.status(500).send(err);
+        }
+        console.log("File written successfully!");
+        res.status(201).json(videoData);
+    })
+
+
+})
 // router.get('/', (req, res) => {
 //     axios
 //       .get(

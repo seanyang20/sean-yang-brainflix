@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import Button from "../../components/Button/Button";
 import uploadIcon from "../../assets/icons/publish.svg";
 import axios from "axios";
+import thumbnail from "../../assets/images/Upload-video-preview.jpg";
 
 export default class VideoUpload extends Component {
      state = {
@@ -23,17 +24,20 @@ export default class VideoUpload extends Component {
   };
 
   // publish video functionality
-  handleAlert = (event) => {
+  handleAlert = () => {
     // event.preventDefault();
     axios
     .post(`http://localhost:8080/videos`,{
-        // "title": event.target.title.value,
-        "channel": "random channel",
-        // "image": thumbnail,
-        "description": "event.target.description.value",
+        "title": this.state.title,
+        "channel": "SYChannel",
+        "image": thumbnail,
+        "description": this.state.description,
         "duration": "4:01",
+        "views": "0",
+        "likes": "0",
         // "video": "https://project-2-api.herokuapp.com/stream",
-        // "timestamp": Date.now(),
+        "timestamp": Date.now(),
+        "comments": []
     })
     .then((response) => {
       console.log(response);
