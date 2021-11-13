@@ -1,11 +1,12 @@
 const express = require("express");
 const app = express();
-const PORT = 8080;
+// const PORT = 8080;
 const fs = require("fs");
 const cors = require('cors');
 const morgan = require('morgan');
 const path = require("path");
 
+app.use(express.static(path.join(__dirname, "public")));
 
 // Routes
 const videosJS = require("./routes/videos.js");
@@ -27,6 +28,6 @@ app.use(morgan('tiny'));
 app.use("/", videosJS);
 app.use("/", commentsJS);
 
-app.listen(PORT, () => {
-    console.log(`Express server is up and running on Port ${PORT}!`);
+app.listen(port, () => {
+    console.log(`Express server is up and running on Port ${port}!`);
   });

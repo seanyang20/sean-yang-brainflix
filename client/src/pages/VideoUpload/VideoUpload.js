@@ -7,6 +7,7 @@ import Button from "../../components/Button/Button";
 import uploadIcon from "../../assets/icons/publish.svg";
 import axios from "axios";
 import thumbnail from "../../assets/images/Upload-video-preview.jpg";
+const apiURL = "http://localhost:8080";
 
 export default class VideoUpload extends Component {
      state = {
@@ -39,7 +40,7 @@ export default class VideoUpload extends Component {
     .post(`http://localhost:8080/videos`,{
         "title": this.state.title,
         "channel": "SYChannel",
-        "image": thumbnail,
+        "image": `${apiURL}/images/Upload-video-preview.jpg`,
         "description": this.state.description,
         "duration": "4:01",
         "views": "0",
@@ -47,6 +48,16 @@ export default class VideoUpload extends Component {
         // "video": "https://project-2-api.herokuapp.com/stream",
         "timestamp": Date.now(),
         "comments": []
+        // title: this.state.title,
+        // channel: "SYChannel",
+        // image: `${apiURL}/images/Upload-video-preview.jpg`,
+        // description: this.state.description,
+        // duration: "4:01",
+        // views: "0",
+        // likes: "0",
+        // // "video": "https://project-2-api.herokuapp.com/stream",
+        // timestamp: Date.now(),
+        // comments: []
     })
     .then((response) => {
       console.log(response);
