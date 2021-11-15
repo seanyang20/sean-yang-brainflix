@@ -84,8 +84,6 @@ handleSubmit = async (event) => {
      
 
     } else {
-
-
      // This is where we would make an axios request
     // to our backend to add the user to our database.
    await axios
