@@ -57,6 +57,7 @@ input {
 textarea {
     @extend input;
     height: 6.75rem;
+ 
 
     @include tablet {
         height: 2.5rem;

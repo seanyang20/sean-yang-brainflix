@@ -6,8 +6,10 @@ import CurrentVideo from "../../components/CurrentVideo/CurrentVideo";
 import VideoDescription from "../../components/Video Description/VideoDescription";
 import axios from "axios";
 
-const apiURL = "https://project-2-api.herokuapp.com";
-const apiKEY = "aee5cdb1-199b-4b72-9523-9239ce527109";
+// const apiURL = "https://project-2-api.herokuapp.com";
+// const apiKEY = "aee5cdb1-199b-4b72-9523-9239ce527109";
+
+
 
 export default class Home extends Component {
     state = {
@@ -76,6 +78,14 @@ handleSubmit = async (event) => {
 
     let shownVidId = this.state.shown.id;
     console.log(shownVidId);
+
+    if (this.state.commentInput === "") {
+      alert("Please enter your comment");
+     
+
+    } else {
+
+
      // This is where we would make an axios request
     // to our backend to add the user to our database.
    await axios
@@ -105,6 +115,7 @@ handleSubmit = async (event) => {
     this.setState({
         [event.target.name]: '',
       });
+    }
 
   };
 

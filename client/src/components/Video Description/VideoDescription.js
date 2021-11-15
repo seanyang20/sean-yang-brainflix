@@ -2,7 +2,6 @@ import React from "react";
 import "./VideoDescription.scss";
 import ViewsIcon from "../../assets/icons/views.svg";
 import LikesIcon from "../../assets/icons/likes.svg";
-// from react-time-ago
 import ReactTimeAgo from 'react-time-ago';
 import TimeAgo from 'javascript-time-ago';
 import en from 'javascript-time-ago/locale/en.json';
@@ -11,20 +10,7 @@ TimeAgo.addLocale(en);
 
 export default function VideoDescription(props) {
  
-    // console.log(props.data.timestamp);
-    // let time = props.data.timestamp;
 
-    // if (props.data && props.data.timestamp) {
-
-  
-    // function updatedTime () {
-    //   if (typeof time === 'number'){
-       
-    //     return time;
-    //   }
-    // }
-    // console.log(updatedTime);
-      
 
 
   return (

@@ -2,9 +2,6 @@ const express = require("express");
 const router = express.Router();
 const fs = require('fs')
 const { v4: uuidv4 } = require("uuid");
-// const videoJSON = require('../data/video-details.json')
-
-// let videoData = videoJSON
 
 let videoData = [];
 
@@ -59,15 +56,7 @@ router
             }
         })
         console.log(videoData);
-        // overwrite the data file 
 
-        // fs.writeFile(__dirname + '/../data/video-details.json', JSON.stringify(videoData, null, 2), (err) => {
-        //     if (err){
-        //         console.log(err)
-        //     } else {
-        //         res.status(200).send(newComment)
-        //     }
-        // })
         res.json(videoData);
 
         fs.writeFile('./data/videos.json', 
@@ -111,13 +100,7 @@ router
         console.log("File written successfully!");
         res.status(201).json(videoData);
     })
-//         fs.writeFile(__dirname + '/../data/video-details.json', JSON.stringify(videoData, null, 2), (err) => {
-//             if (err){
-//                 console.log(err)
-//             } else {
-//                 res.status(200).send(selectedComment)
-//             }
-//         })
+
     })
 
 module.exports = router

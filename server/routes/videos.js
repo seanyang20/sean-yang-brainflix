@@ -4,7 +4,6 @@ const fs = require("fs");
 const { v4: uuidv4 } = require("uuid");
 const path = require("path");
 
-// router.use(express.static(path.join(__dirname, "public")));
 
 let videoData = [];
 
@@ -128,16 +127,6 @@ router.put('/videos/:videoId/likes', (req, res) => {
 
 
 })
-// router.get('/', (req, res) => {
-//     axios
-//       .get(
-//         `https://project-2-api.herokuapp.com/videos?api_key=${process.env.BRAINFLIX_API_KEY}`
-//       )
-//       .then((resp) => {
-//         console.log(resp.data);
-//         res.json(resp.data);
-//       });
-//   });
-  
+
 
 module.exports = router;

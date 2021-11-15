@@ -1,7 +1,5 @@
-import React, {Component, useState} from "react";
+import React, {Component} from "react";
 import "./VideoUpload.scss";
-// import SampleVideo from "../../assets/Video/brainstation-sample-video.mp4";
-// import videouploadPoster from "../../assets/Images/videoupload-video-preview.jpg";
 import { Link } from "react-router-dom";
 import Button from "../../components/Button/Button";
 import uploadIcon from "../../assets/icons/publish.svg";
@@ -48,16 +46,6 @@ export default class VideoUpload extends Component {
         // "video": "https://project-2-api.herokuapp.com/stream",
         "timestamp": Date.now(),
         "comments": []
-        // title: this.state.title,
-        // channel: "SYChannel",
-        // image: `${apiURL}/images/Upload-video-preview.jpg`,
-        // description: this.state.description,
-        // duration: "4:01",
-        // views: "0",
-        // likes: "0",
-        // // "video": "https://project-2-api.herokuapp.com/stream",
-        // timestamp: Date.now(),
-        // comments: []
     })
     .then((response) => {
       console.log(response);
