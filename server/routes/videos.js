@@ -4,7 +4,7 @@ const fs = require("fs");
 const { v4: uuidv4 } = require("uuid");
 const path = require("path");
 
-router.use(express.static(path.join(__dirname, "public")));
+// router.use(express.static(path.join(__dirname, "public")));
 
 let videoData = [];
 

@@ -11,6 +11,11 @@
     border-radius: .25rem;
     padding: 0 0 0 .5rem;
 
+    &:hover {
+      background-color: $darkblue;
+      cursor: pointer;
+    }
+
     &-text {
       @include text-style (.8125rem, 1.125rem);
       font-family: 'Avenir Next Bold';

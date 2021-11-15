@@ -83,8 +83,10 @@ render (){
             VIDEO THUMBNAIL
           </label>
           <video className="videoupload__video" poster={thumbnail} ></video>
+          <input className="videoupload__file-input--desktop" type="file" name="file" onChange={this.changeHandler} />
         </div>
         <form className="videoupload__form" name="form" method="post">
+          <input className="videoupload__file-input" type="file" name="file" onChange={this.changeHandler} />
           <label className="videoupload__label" htmlFor="videoupload__form-title" >
             TITLE YOUR VIDEO
           </label>
@@ -105,7 +107,7 @@ render (){
             placeholder="Add a description of your video"
             onChange={this.handleChange}
           />
-          <input type="file" name="file" onChange={this.changeHandler} />
+          
         </form>
         </section>
       <div className="videoupload__container-bottom">

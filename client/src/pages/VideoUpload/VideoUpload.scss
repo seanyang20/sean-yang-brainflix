@@ -42,10 +42,15 @@
         margin: 0 0 2rem 0;
         @include tablet {
             border-top: 1px solid $mercury;
-            padding: 2rem 0 2rem 0;
+            padding: 2rem 0 0 0;
         }
         @include desktop {
+        
             border-top: none;
+            flex-basis: 35%;
+            height: 100%;
+            padding: 0 0 0 0;
+            margin: 2rem 0 2rem 0;
         }
     
       }
@@ -61,6 +66,16 @@
     &__video {
       width: 100%;
       border-radius: .25rem;
+
+      @include tablet {
+        margin: .25rem 0 0 0;
+      }
+
+      @include desktop {
+        height: 11rem;
+        width: 20rem;
+    
+      }
     }
   
     &__form {
@@ -70,9 +85,27 @@
         }
         @include desktop {
             border-bottom: none;
+            height: 100%;
+            margin: 0;
+            flex-basis: 65%;
         }
     }
-  
+    &__file-input {
+
+      &--desktop {
+        display: none;
+
+        @include desktop {
+          display: table-column;
+          height: 1.5rem;
+          width: 20rem;
+        }
+      }
+      @include desktop {
+        display: none;
+      }
+    }
+
     &__title {
       height: 2.5rem;
       margin: 0.25rem 0 1rem 0;
@@ -134,7 +167,11 @@
       font-family: 'Avenir Next Regular';
       font-size: .8125rem;
       text-align: center;
-      margin: 2rem 0 2rnpm em 0;
+      margin: 2rem 0 2rem 0;
+
+      &:hover {
+        cursor: pointer;
+      }
 
       @include tablet {
         flex-basis: 25%;

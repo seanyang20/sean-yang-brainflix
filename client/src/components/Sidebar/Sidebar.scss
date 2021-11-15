@@ -3,8 +3,7 @@
 @use '../../styles/partials/variables' as *;
 
 .sidebar {
-    border-left: 1px solid $mercury;
-
+ 
     // to get rid of link underline and color
     & a{
         text-decoration: none;
@@ -13,6 +12,7 @@
 
     @include desktop {
         padding: 0 0 0 1.5rem;
+        border-left: 1px solid $mercury;
     }
 
     &__header {
